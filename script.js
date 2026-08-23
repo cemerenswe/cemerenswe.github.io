@@ -1,4 +1,3 @@
-/* ========== Burger Menu Toggle ========== */
 const burgerMenu = document.getElementById("burgerMenu");
 const navLinks = document.getElementById("navLinks");
 
@@ -7,15 +6,12 @@ burgerMenu.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
-// Schließe Menu wenn Link geklickt wird
 navLinks.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     burgerMenu.classList.remove("active");
     navLinks.classList.remove("active");
   });
 });
-
-/* ========== Navigation Active State ========== */
 document.addEventListener("scroll", () => {
   const navLinks = document.querySelectorAll(".nav-links a");
 
@@ -37,12 +33,9 @@ document.addEventListener("scroll", () => {
   });
 });
 
-/* ========== Scroll to Top on Logo Click ========== */
 document.querySelector(".nav-logo").addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
-
-/* ========== Simple Animation on Scroll ========== */
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -100px 0px",
@@ -57,7 +50,6 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Beobachte alle Cards
 document
   .querySelectorAll(".skill-card, .project-card, .service-item, .step")
   .forEach((el) => {
@@ -66,8 +58,6 @@ document
     el.style.transition = "all 0.6s ease";
     observer.observe(el);
   });
-
-/* ========== Cookie Consent Banner ========== */
 function showCookieBanner() {
   const banner = document.getElementById("cookieBanner");
   if (!banner) return;
@@ -101,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Reveal phone number on demand
   const revealBtn = document.getElementById("revealPhoneBtn");
   if (revealBtn) {
     const phoneNumber = "[private phone number removed]";

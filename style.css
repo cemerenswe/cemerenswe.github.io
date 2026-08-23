@@ -1,14 +1,10 @@
-/* ========== CSS-Variablen / Design System ========== */
 :root {
-  /* Farben */
   --primary-color: #00d4ff;
   --secondary-color: #0096d4;
   --dark-bg: #0a0e27;
   --dark-bg-light: #151b34;
   --text-light: #e8ecf1;
   --text-muted: #a0aec0;
-
-  /* Typografie */
   --font-family:
     "Inter", "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -18,29 +14,20 @@
   --font-size-xl: 24px;
   --font-size-2xl: 32px;
   --font-size-3xl: 48px;
-
-  /* Fluid typography for headings */
   --fluid-h1: clamp(1.8rem, 2.5vw + 1rem, 3rem);
-
-  /* Abstände */
   --spacing-xs: 8px;
   --spacing-sm: 16px;
   --spacing-md: 24px;
   --spacing-lg: 32px;
   --spacing-xl: 48px;
   --spacing-2xl: 64px;
-
-  /* Übergänge */
   --transition: all 0.3s ease;
 }
-
-/* ========== Basis-Styles ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 150px;
@@ -55,7 +42,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ========== Typography ========== */
 h1 {
   font-size: var(--font-size-3xl);
   font-weight: 700;
@@ -91,14 +77,12 @@ a:hover {
   color: var(--secondary-color);
 }
 
-/* ========== Container ========== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
 }
 
-/* ========== Navigation ========== */
 .navbar {
   position: fixed;
   top: 0;
@@ -141,7 +125,6 @@ a:hover {
   color: var(--primary-color);
 }
 
-/* ========== Burger Menu ========== */
 .burger-menu {
   display: none;
   flex-direction: column;
@@ -171,7 +154,6 @@ a:hover {
   transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* ========== Hero Section ========== */
 .hero {
   margin-top: 70px;
   min-height: calc(100vh - 70px);
@@ -243,7 +225,6 @@ a:hover {
   flex-wrap: wrap;
 }
 
-/* ========== Buttons ========== */
 .btn {
   padding: var(--spacing-sm) var(--spacing-lg);
   border-radius: 8px;
@@ -283,7 +264,6 @@ a:hover {
   font-size: var(--font-size-small);
 }
 
-/* ========== Sections ========== */
 section {
   padding: var(--spacing-2xl) 0;
 }
@@ -300,7 +280,6 @@ section h2 {
   margin-bottom: var(--spacing-xl);
 }
 
-/* ========== About Section ========== */
 .about p {
   color: var(--text-light);
   font-size: var(--font-size-large);
@@ -309,7 +288,6 @@ section h2 {
   text-align: center;
 }
 
-/* ========== Skills Section ========== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
