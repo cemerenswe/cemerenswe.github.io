@@ -66,3 +66,60 @@ document
     el.style.transition = "all 0.6s ease";
     observer.observe(el);
   });
+
+/* ========== Cookie Consent Banner ========== */
+function showCookieBanner() {
+  const banner = document.getElementById("cookieBanner");
+  if (!banner) return;
+  const consent = localStorage.getItem("cookie_consent");
+  if (!consent) {
+    banner.style.display = "block";
+  }
+}
+
+function setCookieConsent(value) {
+  localStorage.setItem("cookie_consent", value);
+  const banner = document.getElementById("cookieBanner");
+  if (banner) banner.style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  showCookieBanner();
+
+  const acceptBtn = document.getElementById("acceptCookies");
+  const declineBtn = document.getElementById("declineCookies");
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener("click", () => {
+      setCookieConsent("accepted");
+    });
+  }
+
+  if (declineBtn) {
+    declineBtn.addEventListener("click", () => {
+      setCookieConsent("declined");
+    });
+  }
+
+  // Reveal phone number on demand
+  const revealBtn = document.getElementById("revealPhoneBtn");
+  if (revealBtn) {
+    const phoneNumber = "[private phone number removed]";
+    revealBtn.addEventListener("click", () => {
+      const placeholder = document.getElementById("phonePlaceholder");
+      if (!placeholder) return;
+      const revealed = revealBtn.getAttribute("data-revealed") === "1";
+      if (!revealed) {
+        placeholder.textContent = phoneNumber;
+        revealBtn.textContent = "Verbergen";
+        revealBtn.setAttribute("aria-expanded", "true");
+        revealBtn.setAttribute("data-revealed", "1");
+      } else {
+        placeholder.textContent = "Auf Anfrage";
+        revealBtn.textContent = "Anzeigen";
+        revealBtn.setAttribute("aria-expanded", "false");
+        revealBtn.removeAttribute("data-revealed");
+      }
+    });
+  }
+});
