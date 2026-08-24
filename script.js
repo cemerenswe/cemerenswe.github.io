@@ -94,25 +94,3 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       observer.observe(el);
     });
 }
-document.addEventListener("DOMContentLoaded", () => {
-  const revealBtn = document.getElementById("revealPhoneBtn");
-  if (revealBtn) {
-    const phoneNumber = "[private phone number removed]";
-    revealBtn.addEventListener("click", () => {
-      const placeholder = document.getElementById("phonePlaceholder");
-      if (!placeholder) return;
-      const revealed = revealBtn.getAttribute("data-revealed") === "1";
-      if (!revealed) {
-        placeholder.textContent = phoneNumber;
-        revealBtn.textContent = "Verbergen";
-        revealBtn.setAttribute("aria-expanded", "true");
-        revealBtn.setAttribute("data-revealed", "1");
-      } else {
-        placeholder.textContent = "Auf Anfrage";
-        revealBtn.textContent = "Anzeigen";
-        revealBtn.setAttribute("aria-expanded", "false");
-        revealBtn.removeAttribute("data-revealed");
-      }
-    });
-  }
-});
