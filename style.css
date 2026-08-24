@@ -266,6 +266,7 @@ button:focus-visible {
 
 .btn-primary:hover {
   background-color: var(--secondary-color);
+  color: var(--dark-bg);
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
 }
@@ -284,6 +285,17 @@ button:focus-visible {
 .btn-small {
   padding: var(--spacing-xs) var(--spacing-md);
   font-size: var(--font-size-small);
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.contact-icon {
+  flex-shrink: 0;
 }
 
 section {
