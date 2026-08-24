@@ -94,39 +94,7 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       observer.observe(el);
     });
 }
-function showCookieBanner() {
-  const banner = document.getElementById("cookieBanner");
-  if (!banner) return;
-  const consent = localStorage.getItem("cookie_consent");
-  if (!consent) {
-    banner.style.display = "block";
-  }
-}
-
-function setCookieConsent(value) {
-  localStorage.setItem("cookie_consent", value);
-  const banner = document.getElementById("cookieBanner");
-  if (banner) banner.style.display = "none";
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-  showCookieBanner();
-
-  const acceptBtn = document.getElementById("acceptCookies");
-  const declineBtn = document.getElementById("declineCookies");
-
-  if (acceptBtn) {
-    acceptBtn.addEventListener("click", () => {
-      setCookieConsent("accepted");
-    });
-  }
-
-  if (declineBtn) {
-    declineBtn.addEventListener("click", () => {
-      setCookieConsent("declined");
-    });
-  }
-
   const revealBtn = document.getElementById("revealPhoneBtn");
   if (revealBtn) {
     const phoneNumber = "[private phone number removed]";

@@ -546,41 +546,6 @@ section h2 {
   color: var(--text-muted);
 }
 
-/* ========== Cookie Banner ========== */
-.cookie-banner {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 24px;
-  background: rgba(10, 14, 39, 0.98);
-  border: 1px solid rgba(0, 212, 255, 0.08);
-  padding: 12px 16px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  z-index: 120;
-  max-width: 1100px;
-  width: calc(100% - 48px);
-}
-
-.cookie-banner p {
-  margin: 0 12px 0 0;
-  color: var(--text-light);
-  display: inline-block;
-}
-
-.cookie-actions {
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.cookie-banner .btn-link {
-  background: none;
-  color: var(--text-muted);
-  border: none;
-  padding: 8px;
-}
-
 /* ========== Footer Links ========== */
 .footer-links {
   margin-top: var(--spacing-md);
@@ -695,14 +660,6 @@ section h2 {
 
   .btn {
     width: 100%;
-  }
-
-  .cookie-banner {
-    left: 0;
-    transform: none;
-    width: 100%;
-    border-radius: 0;
-    bottom: 0;
   }
 
   .skills-grid,
