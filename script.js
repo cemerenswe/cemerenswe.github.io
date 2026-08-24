@@ -1,41 +1,75 @@
 const burgerMenu = document.getElementById("burgerMenu");
 const navLinks = document.getElementById("navLinks");
 
-burgerMenu.addEventListener("click", () => {
-  burgerMenu.classList.toggle("active");
-  navLinks.classList.toggle("active");
-});
+function closeNavigation() {
+  if (!burgerMenu || !navLinks) return;
+  burgerMenu.classList.remove("active");
+  navLinks.classList.remove("active");
+  burgerMenu.setAttribute("aria-expanded", "false");
+  burgerMenu.setAttribute("aria-label", "Navigation öffnen");
+}
 
-navLinks.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    burgerMenu.classList.remove("active");
-    navLinks.classList.remove("active");
+if (burgerMenu && navLinks) {
+  burgerMenu.addEventListener("click", () => {
+    const isOpen = burgerMenu.getAttribute("aria-expanded") === "true";
+    burgerMenu.classList.toggle("active", !isOpen);
+    navLinks.classList.toggle("active", !isOpen);
+    burgerMenu.setAttribute("aria-expanded", String(!isOpen));
+    burgerMenu.setAttribute(
+      "aria-label",
+      isOpen ? "Navigation öffnen" : "Navigation schließen",
+    );
   });
-});
-document.addEventListener("scroll", () => {
-  const navLinks = document.querySelectorAll(".nav-links a");
 
-  navLinks.forEach((link) => {
-    const section = document.querySelector(link.getAttribute("href"));
-    if (section) {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeNavigation);
+  });
 
-      if (
-        window.scrollY >= sectionTop - 200 &&
-        window.scrollY < sectionTop + sectionHeight - 200
-      ) {
-        link.style.color = "var(--primary-color)";
-      } else {
-        link.style.color = "var(--text-light)";
-      }
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      burgerMenu.getAttribute("aria-expanded") === "true"
+    ) {
+      closeNavigation();
+      burgerMenu.focus();
     }
   });
-});
+}
+function updateActiveNavigation() {
+  const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  if (!links.length) return;
 
-document.querySelector(".nav-logo").addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+  const scrollMarker = window.scrollY + 200;
+  const reachedPageEnd =
+    window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+  let activeLink = null;
+
+  links.forEach((link) => {
+    const section = document.querySelector(link.getAttribute("href"));
+    if (section && section.offsetTop <= scrollMarker) {
+      activeLink = link;
+    }
+  });
+
+  if (reachedPageEnd) {
+    activeLink = links.at(-1);
+  }
+
+  links.forEach((link) => {
+    const isActive = link === activeLink;
+    link.classList.toggle("active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+document.addEventListener("scroll", updateActiveNavigation, { passive: true });
+window.addEventListener("resize", updateActiveNavigation);
+updateActiveNavigation();
+
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -100px 0px",
@@ -50,14 +84,16 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-document
-  .querySelectorAll(".skill-card, .project-card, .service-item, .step")
-  .forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(20px)";
-    el.style.transition = "all 0.6s ease";
-    observer.observe(el);
-  });
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document
+    .querySelectorAll(".skill-card, .project-card, .service-item, .step")
+    .forEach((el) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(20px)";
+      el.style.transition = "all 0.6s ease";
+      observer.observe(el);
+    });
+}
 function showCookieBanner() {
   const banner = document.getElementById("cookieBanner");
   if (!banner) return;

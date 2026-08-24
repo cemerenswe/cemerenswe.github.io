@@ -3,7 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mein Portfolio</title>
+    <title>Cem Eren Ölmez | Angehender Full-Stack-Entwickler</title>
+    <meta
+      name="description"
+      content="Portfolio von Cem Eren Ölmez mit responsiven Webprojekten, JavaScript-Anwendungen und API-Integrationen."
+    />
+    <meta name="author" content="Cem Eren Ölmez" />
+    <meta name="theme-color" content="#0a0e27" />
+    <link rel="canonical" href="https://cemerenswe.github.io/" />
+    <meta property="og:locale" content="de_AT" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Portfolio von Cem Eren Ölmez" />
+    <meta
+      property="og:title"
+      content="Cem Eren Ölmez | Angehender Full-Stack-Entwickler"
+    />
+    <meta
+      property="og:description"
+      content="Entdecke meine Webprojekte, Frontend-Kenntnisse und bisherigen Erfahrungen mit APIs."
+    />
+    <meta property="og:url" content="https://cemerenswe.github.io/" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Cem Eren Ölmez | Angehender Full-Stack-Entwickler"
+    />
+    <meta
+      name="twitter:description"
+      content="Entdecke meine Webprojekte, Frontend-Kenntnisse und bisherigen Erfahrungen mit APIs."
+    />
     <link rel="stylesheet" href="style.css" />
     <link
       rel="icon"
@@ -14,11 +42,20 @@
   <body>
     <nav class="navbar">
       <div class="nav-container">
-        <div class="nav-logo">Cem Eren Ölmez</div>
-        <button class="burger-menu" id="burgerMenu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <a href="#hero" class="nav-logo" aria-label="Zur Startseite"
+          >Cem Eren Ölmez</a
+        >
+        <button
+          class="burger-menu"
+          id="burgerMenu"
+          type="button"
+          aria-label="Navigation öffnen"
+          aria-expanded="false"
+          aria-controls="navLinks"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </button>
         <ul class="nav-links" id="navLinks">
           <li><a href="#about">Über mich</a></li>
@@ -32,9 +69,7 @@
     <section class="hero" id="hero">
       <div class="hero-content">
         <h1>Cem Eren Ölmez</h1>
-        <p class="hero-subtitle">
-          Angehender Full-Stack-Entwickler & Webdesign-Enthusiast
-        </p>
+        <p class="hero-subtitle">Angehender Full-Stack-Entwickler</p>
         <p class="hero-description">
           In meinem persönlichen Lern- und Bewerbungsportfolio zeige ich eigene
           Webprojekte sowie meine Kenntnisse in moderner Frontend-Entwicklung
@@ -310,18 +345,21 @@
             href="mailto:cemerenswe@gmail.com"
             class="btn btn-primary"
             target="_blank"
+            rel="noopener noreferrer"
             >📧 E-Mail schreiben</a
           >
           <a
             href="https://wa.me/private-phone-removed"
             class="btn btn-primary"
             target="_blank"
+            rel="noopener noreferrer"
             >💬 WhatsApp</a
           >
           <a
             href="https://instagram.com/cemeren.dev"
             class="btn btn-primary"
             target="_blank"
+            rel="noopener noreferrer"
             >📸 Instagram</a
           >
         </div>
