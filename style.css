@@ -385,8 +385,15 @@ section h2 {
   font-weight: 600;
 }
 
-.project-card .btn {
-  align-self: flex-start;
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.project-actions .btn {
+  flex: 1 1 120px;
 }
 
 /* ========== Services Section ========== */
