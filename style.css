@@ -303,7 +303,7 @@ section {
 }
 
 section.about,
-section.services,
+section.skills,
 section.process,
 section.contact {
   background-color: var(--dark-bg-light);
@@ -322,6 +322,18 @@ section h2 {
   text-align: center;
 }
 
+.section-intro {
+  max-width: 720px;
+  margin: calc(-1 * var(--spacing-md)) auto var(--spacing-xl);
+  text-align: center;
+}
+
+.section-subtitle {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-light);
+  text-align: center;
+}
+
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -332,11 +344,35 @@ section h2 {
 .skill-card {
   flex: 1 1 250px;
   max-width: 360px;
-  background-color: var(--dark-bg-light);
+  background-color: var(--dark-bg);
   padding: var(--spacing-lg);
   border-radius: 12px;
   border: 1px solid rgba(0, 212, 255, 0.2);
   transition: var(--transition);
+}
+
+.offer-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-xl) 0 var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.offer-heading .section-subtitle {
+  margin-bottom: 0;
+}
+
+.status-badge {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 999px;
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .skill-card:hover {
